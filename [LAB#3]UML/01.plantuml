@@ -1,14 +1,49 @@
 @startuml
-class Object << general >>
-Object <|--- ArrayList
 
-note top of Object : In java, every class\nextends this one.
+class Paros{
+    - {static} log :Log = null
+    - cmdLine  : CommandLine = null
+    ~ {static} sslFactory :ProtocolSocketFactory= null;
 
-note "This is a floating note" as N1
-note "This note is connected\nto several objects." as N2
-Object .. N2
-N2 .. ArrayList
+    - {static} main(string[]) :void
+    - {static} init(string[]) :void
+    - run() : void
+    - runCommandLine():void
+    - runGUI():void
+    - showLicense():void
+    - checkUpdate():void
+}
 
-class Foo
-note left: On last defined class
+class Constant{
+    + {static}PROGRAM_NAME:String   = "Paros"
+    + {static}PROGRAM_TITLE:String = PROGRAM_NAME + PROGRAM_VERSION
+    + {static}PROGRAM_VERSION:String   = "3.2.13"
+    + {static}VERSION_TAG:long   = "30020013"
+    + {static}SYSTEM_PAROS_USER_LOG:String = paros.user.log
+    + {static}FILE_CONFIG_DEFAULT:String = xml/config.xml
+    + FILE_CONFIG:String = config.xml
+    + {static}FOLDER_FILTER:String = fillter
+    + FOLDER_SESSION_DEFAULT:String = session
+    + {static}DBNAME_UNTITLED_DEFAULT:String = FOLDER_SESSION_DEFAULT + System.getProperty"file.separator" + "untitled";
+    + {static}DBNAME_UNTITLED:String = FOLDER_SESSION + System.getProperty+file.separator + "untitled";
+    + {static}DBNAME_TEMPLATE:String = "db" + System.getProperty+file.separator + "parosdb"
+    + {static}ACCEPTED_LICENSE_DEFAULT:String = AcceptedLicense
+    + {static}ACCEPTED_LICENSE:String = ACCEPTED_LICENSE_DEFAULT
+    - {static}Constant:instance = null
+    ' + {static}MAX_HOST_CONNECTION:int = 5
+    ' + {static}USER_AGENT:String = PROGRAM_NAME + "/" + PROGRAM_VERSION
+    ' - {static}staticEyeCatcher:String = PROGRAM_NAME 
+    ' - {static}staticSP:Boolean = false 
+    ' - {static}patternWindows:Pattern = Pattern.compile = window, Pattern.CASE_INSENSITIVE; 
+    ' - {static}patternLinux:Pattern = Pattern.compile = linux, Pattern.CASE_INSENSITIVE; 
+    + Constant()
+    + {static} getEyeCatcher():String
+    + {static} getInstance():Constant    
+    + {static} setEyeCatcher(String eyeCatcher):void
+    + {static} setSP(boolean isSP):void
+    + {static} isWindows():boolean
+    + {static} isLinux():boolean
+}
+
+
 @enduml

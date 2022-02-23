@@ -52,10 +52,7 @@ import org.parosproxy.paros.view.View;
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class Paros {
-    
-
     static {
-	    
 	    // set SSLConnector as socketfactory in HttpClient.
 	    ProtocolSocketFactory sslFactory = null;
 	    try {
