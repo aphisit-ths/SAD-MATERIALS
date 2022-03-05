@@ -12,10 +12,10 @@ public class Main {
         System.out.println("Height = " + height);
         System.out.println("Area = " + reg1.getArea());
         System.out.println("==== Square ====");
-        Square square01 = new Square(16);
+        Square square01 = new Square(2);
         System.out.println("Width = " + square01.getWidth());
         System.out.println("Height = " + square01.getHight());
-        System.out.println(square01.getArea());
+        System.out.println("Area = " +  square01.getArea());
         
     }
 }
