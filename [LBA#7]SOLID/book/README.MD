@@ -1,1 +1,1 @@
-![Book](/out/Book/Book.png "BEFORE")
+![Book](./out/Book/Book.png)
