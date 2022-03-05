@@ -1,4 +1,3 @@
-package com.solid.lsp;
 
 
 public class Main {
@@ -12,13 +11,11 @@ public class Main {
         System.out.println("Width = " + width);
         System.out.println("Height = " + height);
         System.out.println("Area = " + reg1.getArea());
-
-        Rectangle reg2 = new Square(5);
-        reg2.setWidth(width);
-        reg2.setHeight(height);
-        System.out.println("====   Square  ====");
-        System.out.println("Width = " + width);
-        System.out.println("Height = " + height);
-        System.out.println("Area = " + reg2.getArea());
+        System.out.println("==== Square ====");
+        Square square01 = new Square(16);
+        System.out.println("Width = " + square01.getWidth());
+        System.out.println("Height = " + square01.getHight());
+        System.out.println(square01.getArea());
+        
     }
 }

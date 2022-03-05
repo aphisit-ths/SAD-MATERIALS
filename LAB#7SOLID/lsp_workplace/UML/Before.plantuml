@@ -1,0 +1,22 @@
+
+class Rectangle {
+    -  width : int
+    -  height : int
+    + Rectangle():Rectangle
+    + Rectangle( width:int, height:int):Rectangle
+    + getWidth() :int
+    + setWidth(int width):void
+    + getHeight(): int
+    + setHeight(int height):void
+    + getArea() : int
+
+}
+
+class Square{
+    + Square(side:int):Square
+    +  setWidth(int width):void
+    +  setHeight(int height):void
+    +  setSide(int side):void
+}
+
+Square --|> Rectangle:<<entended>>

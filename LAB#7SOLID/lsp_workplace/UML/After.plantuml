@@ -1,0 +1,30 @@
+abstract AbstractShape {
+    + int width
+    + int hight
+    + AbstactShape():AbstractShape
+    + AbstactShape( width:int ,  hight:int):AbstactShape
+    +  getHight() :int
+    +  getWidth() :int
+    +  getArea():int
+
+}
+class Rectangle {
+    -  width : int
+    -  height : int
+    + Rectangle():Rectangle
+    + Rectangle( width:int, height:int):Rectangle
+    + getWidth() :int
+    + setWidth(int width):void
+    + getHeight(): int
+    + setHeight(int height):void
+    + getArea() : int
+
+}
+
+class Square{
+    +  Square(side:int):Super
+ 
+}
+
+Square --|> AbstractShape:<<entended>>
+Rectangle --|> AbstractShape:<<entended>>
