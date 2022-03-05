@@ -12,7 +12,7 @@
 ซึ่งตามตามแนวคิดจะกล่าวไว้ว่า ในหนึ่ง module ควรจะรับผิดชอบโดย 1 Actor ,
 
 และอีกวิธีหนึ่งก็คือ Interface Segregation principle (ISP) 
-คือการแตก Interface ที่มี medtod ที่ปนกันของ < 2 actors ออกมาและให้ตัว class implement เฉพาะขอบเขตหน้าที่ของตัวเอง
+คือการแตก Interface ที่มี medtod ที่ปนกันของ < 2 actors ออกมาและให้ตัว class implement interface เฉพาะขอบเขตหน้าที่ของตัวเอง
 
 ```
 
