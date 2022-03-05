@@ -3,47 +3,126 @@
 class Paros{
     - {static} log :Log = null
     - cmdLine  : CommandLine = null
-    ~ {static} sslFactory :ProtocolSocketFactory= null;
-
+    ~ {static} sslFactory :ProtocolSocketFactory= null
     - {static} main(string[]) :void
     - {static} init(string[]) :void
     - run() : void
     - runCommandLine():void
     - runGUI():void
-    - showLicense():void
-    - checkUpdate():void
+
 }
 
 class Constant{
     + {static}PROGRAM_NAME:String   = "Paros"
-    + {static}PROGRAM_TITLE:String = PROGRAM_NAME + PROGRAM_VERSION
     + {static}PROGRAM_VERSION:String   = "3.2.13"
-    + {static}VERSION_TAG:long   = "30020013"
-    + {static}SYSTEM_PAROS_USER_LOG:String = paros.user.log
-    + {static}FILE_CONFIG_DEFAULT:String = xml/config.xml
-    + FILE_CONFIG:String = config.xml
-    + {static}FOLDER_FILTER:String = fillter
-    + FOLDER_SESSION_DEFAULT:String = session
-    + {static}DBNAME_UNTITLED_DEFAULT:String = FOLDER_SESSION_DEFAULT + System.getProperty"file.separator" + "untitled";
-    + {static}DBNAME_UNTITLED:String = FOLDER_SESSION + System.getProperty+file.separator + "untitled";
-    + {static}DBNAME_TEMPLATE:String = "db" + System.getProperty+file.separator + "parosdb"
-    + {static}ACCEPTED_LICENSE_DEFAULT:String = AcceptedLicense
-    + {static}ACCEPTED_LICENSE:String = ACCEPTED_LICENSE_DEFAULT
     - {static}Constant:instance = null
-    ' + {static}MAX_HOST_CONNECTION:int = 5
-    ' + {static}USER_AGENT:String = PROGRAM_NAME + "/" + PROGRAM_VERSION
-    ' - {static}staticEyeCatcher:String = PROGRAM_NAME 
-    ' - {static}staticSP:Boolean = false 
-    ' - {static}patternWindows:Pattern = Pattern.compile = window, Pattern.CASE_INSENSITIVE; 
-    ' - {static}patternLinux:Pattern = Pattern.compile = linux, Pattern.CASE_INSENSITIVE; 
     + Constant()
     + {static} getEyeCatcher():String
-    + {static} getInstance():Constant    
-    + {static} setEyeCatcher(String eyeCatcher):void
-    + {static} setSP(boolean isSP):void
-    + {static} isWindows():boolean
-    + {static} isLinux():boolean
+    + {static} getInstance():Constant
+
+
 }
+class Model{
+    - {static}  model :Model = null;
+    -  session :Session = null;
+    + Model()
+    +  getOptionsParam():OptionsParam
+    +  getSession():Session
+}
+class View{
+    - {static}  view :View = null
+    -  sessionDialog:SessionDialog = null
+    -  optionsDialog : OptionsDialog= null
+    -  mainFrame : MainFrame = null
+    -  requestPanel:HttpPanel = null
+    -  responsePanel : HttpPanel= null
+    +  init():void
+    +  postInit() :void
+    +  showDialog(String msg):int
+    +  showMessageDialog(String msg):void
+    + {static}  getSingleton():View
+    +  getOutputPanel() :
+}
+class Control{
+    -   {static}  control: Control = null
+    -   proxy : Proxy= null
+    -   init() :void
+    +   getProxy():Proxy
+    #   addExtension():void
+    +   getMenuFileControl() :MenuFileControl
+    +   {static}  initSingletonWithoutView():void
+    +   runCommandLineNewSession(String fileName) :void
+}
+abstract class AbstractControl{
+    #loader :ExtensionLoader = null
+    #model :Model = null
+    #view :View = null
+    + AbstractControl(Model model ,View view)
+    + getExtensionLoader():ExtensionLoader
+    #loadExtension():void
+    #addExtension():void
+    #addCommonExtension
+    +shutdown(boolean compact):void
+}
+class MenuFileControl{
+    - {static}  log :Log =  LogFactory.getLog MenuFileControl.class
+    -  view : View = null
+    -  model : Model = null
+    -  control : Control= null
+    +  exit():void
+    +  newSession(boolean isPromptNewSession):void
+    +  openSession():void
+    +  saveSession() :void
+    +  sessionOpened(File file, Exception e):void
+    +  sessionSaved(Exception e):void
+}
+
+class MenuToolsControl{
+    -loader :ExtensionLoader = null 
+    -model :Model = null 
+    -view :View = null 
+    + MenuToolsControl() 
+    + MenuToolsControl(Model model, View view, Control control) 
+    + options() :void
+}
+class Proxy {
+    
+    -  model : Model= null
+    -  proxyServer :ProxyServer = null;
+    -  proxyServerSSL : ProxyServerSSL= null;
+    -  reverseProxy :boolean= false;
+    -  reverseProxyHost :String = "";
+    + Proxy(Model model)
+    +  startServer():void
+    +  stopServer():void
+}
+
+Paros ..>   Constant :<<use>>
+Paros ..>   Model :<<use>>
+Paros ..>   View :<<use>>
+Paros ..>   Control :<<use>>
+
+Control --|> AbstractControl
+Control ..> Model :<<use>>
+Control ..> View :<<use>>
+
+View *-- AbstractControl
+Model *-- AbstractControl
+
+MenuFileControl ..> Constant :<<use>>
+Model *-- MenuFileControl
+View *-- MenuFileControl
+Control *-- MenuFileControl
+
+MenuToolsControl ..> Constant :<<use>>
+Model *-- MenuToolsControl
+View *-- MenuToolsControl
+Control *-- MenuToolsControl
+
+Model *-- Proxy
+Model ..> Constant: <<>>
+
+View ..> Constant:<<use>>
 
 
 @enduml
