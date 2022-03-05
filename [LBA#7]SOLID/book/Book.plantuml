@@ -1,0 +1,22 @@
+Class Book{
+    -  title :String
+    - pages : List<String> 
+    - iterator : ListIterator<String> 
+    - currentPage :String
+    + Book(String title, List<String> pages) 
+    +  getTitle():String
+    +  getCurrentPage():String
+    +  turnToNextPage():boolean
+    +  printToScreen():void
+    +  printToFile():void
+    }
+
+Class BookPublisher{
+    
+}
+
+Class BookReader{
+
+}
+BookPublisher ...> Book:<<use>>
+BookReader ...> Book:<<use>>

@@ -1,5 +1,3 @@
-package com.solid.book;
-
 
 import java.util.List;
 
