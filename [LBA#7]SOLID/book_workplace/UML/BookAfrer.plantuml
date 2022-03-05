@@ -11,11 +11,11 @@ Class Book{
     
     }
 
-Class BookReaderAction {
+interface ReaderServiceInterface {
     +  printToScreen():void
 }
 
-Class BookPublisherAction{
+interface PublisherServiceInterface{
     +  printToFile():void
 }
 
@@ -26,8 +26,8 @@ Class BookPublisher{
 Class BookReader{
 
 }
-BookReaderAction --|> Book
-BookPublisherAction --|> Book
+ReaderServiceInterface --|> Book
+PublisherServiceInterface --|> Book
 
-BookPublisher ...> BookPublisherAction:<<use>>
-BookReader ...> BookReaderAction:<<use>>
+BookPublisher ...|> ReaderServiceInterface:<<implemented>>
+BookReader ...|> PublisherServiceInterface:<<implemented>>
