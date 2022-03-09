@@ -32,7 +32,7 @@ public class Parliament {
         }
     }
 
-    public PrimeMinister electPrimeMinister() {
+    public PrimeMinister electPrimeMinister() { 
         if (pm == null) {
             pm = new PrimeMinister(this);
         }

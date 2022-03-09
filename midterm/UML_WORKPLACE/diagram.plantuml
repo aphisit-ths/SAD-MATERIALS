@@ -1,0 +1,72 @@
+class Cabinet{
+    -  pm: PrimeMinister
+    -  ministers:List <Minister>
+    +  Cabinet(pm :PrimeMinister)
+    -  countMinisters():int
+    +  addMinister(minister:Minister ):void
+    +  removeMinister(minister:Minister ):void
+}
+
+class MemberOfParliament extends Politician  {
+    +  debate(String topic):void
+    +  vote():Boolean
+}
+
+class Minister extends Politician implements OrderIssuable {
+    -  ministry:String
+    +  Minister(String ministry)
+    +  debate(String topic):void
+    +  order():String
+}
+interface OrderIssuable <<interface>> {
+    +  order():String
+}
+
+class Parliament{
+    - {static}  parliament = null:Parliament
+    -  members: List<MemberOfParliament>
+    -  pm:PrimeMinister
+
+    - Parliament()
+    + {static}getInstance() :Parliament
+    -  countMembers():Tnt
+    +  addMember() :void
+    +  electPrimeMinister():PrimeMinister
+}
+
+abstract Politician{
+    # name :String
+    + {abstract}  debate(String topic):void
+    +  getName():String
+    +  setName( name :String):void
+
+}
+
+class PrimeMinister extends Politician implements OrderIssuable{
+    -  parliament : Parliament
+    -  cabinet = null :Cabinet
+    + (Parliament parliament):PrimeMinister
+    +  getCabinet():Cabinet
+    +  addMinister(String ministry):void
+    +  removeMinister(Minister minister):void
+    +  debate(String topic):void
+    +  order():String
+}
+
+' คณะรัดมนตี
+Cabinet --* Minister
+
+
+' รัฐสภา Parliament
+Parliament  --* MemberOfParliament 
+Parliament --> Parliament
+Parliament ..> PrimeMinister:<<Create>>
+
+' รัฐมนตรี Minister
+PrimeMinister *-- Minister
+
+' นากยก PrimeMinister
+PrimeMinister ..> Cabinet :<<create>>
+
+' สมาชิกสภา MemberOfParliament
+' MemberOfParliament <.. Minister:<<call>>
