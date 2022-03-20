@@ -10,8 +10,8 @@ import java.util.List;
 
 public class CSVBookMetadataFormatter implements BookMetadataFormatter {
 
-    private StringWriter writer;
-    private CSVPrinter csvPrinter;
+private StringWriter writer;
+private CSVPrinter csvPrinter;
 
     public CSVBookMetadataFormatter() throws IOException {
         reset();
