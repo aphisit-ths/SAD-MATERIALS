@@ -52,28 +52,6 @@ public class JSONBookMetadataFormatter implements BookMetadataFormatter {
     @Override
     public String getMetadataString() {
         // Please implement this method. You may create additional methods as you see fit.
-       
         return jsonArray.toString();
     }
 }
-//        //Try to write json file
-//        JSONObject obj = new JSONObject();
-//        JSONObject obj1 = new JSONObject();
-//        obj.put("name", "John ");
-//        obj.put("lastname", "Doe");
-//        obj1.put("name", "Jen");
-//        obj1.put("lastname", "Doe");
-//        
-//        JSONArray list = new JSONArray();
-//        list.add(obj);
-//        list.add(obj1);
-//        
-//        
-//        try(FileWriter file = new FileWriter("myJson.json"))
-//        {
-//            file.write(obj.toString());
-//            file.flush();
-//        }catch(IOException e ){
-//            e.printStackTrace();
-//        }
-//        System.out.println(list );
