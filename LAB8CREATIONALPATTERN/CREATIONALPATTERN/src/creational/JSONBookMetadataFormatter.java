@@ -38,7 +38,7 @@ public class JSONBookMetadataFormatter implements BookMetadataFormatter {
             obj.put("Author", Arrays.toString(b.getAuthors()));
             obj.put("Title", b.getTitle());
             obj.put("Title", b.getPublisher());
-            
+
             //Append to list 
             jsonArray.add(obj);
             strWriter.write(jsonArray.toJSONString());

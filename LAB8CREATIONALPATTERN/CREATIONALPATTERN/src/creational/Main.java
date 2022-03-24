@@ -1,5 +1,7 @@
 package creational;
 
+import creational.ExporterCreater.CSVBookMetadataExporter;
+import creational.ExporterCreater.JSONBookMetadataExporter;
 import java.io.FileWriter;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
@@ -9,26 +11,12 @@ import org.json.simple.JSONObject;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParserConfigurationException {
 
-//        // Current usage
-//        BookMetadataFormatter formatter = null;
-//        try {
-//            formatter = BookMetadataFormatterFactory.getBookMetadataFormatter(BookMetadataFormatterFactory.Format.JSON);
-//            formatter.append(TestData.dragonBook);
-//            formatter.append(TestData.sailboatBook);
-//            formatter.append(TestData.cleanArchBook);
-//            System.out.print(formatter.getMetadataString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ParserConfigurationException e) {
-//            e.printStackTrace();
-//        }
-
-        // Expected usage
-// //        BookMetadataExporter exporter = new XMLBookMetadataExporter();
-// //        exporter.add(TestData.sailboatBook);
-// //        exporter.add(TestData.GoFBook);
-// //        exporter.export(System.out);
+        //Expected usage
+        BookMetadataExporter exporter = new CSVBookMetadataExporter();
+        exporter.add(TestData.sailboatBook);
+        exporter.add(TestData.GoFBook);
+        exporter.export(System.out);
     }
 }

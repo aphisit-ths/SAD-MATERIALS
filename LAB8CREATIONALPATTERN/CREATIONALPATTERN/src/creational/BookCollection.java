@@ -12,6 +12,7 @@ public abstract class BookCollection {
 
     public void add(Book b) {
         books.add(b);
+        System.out.println();
     }
 
     public void remove(Book b) {
