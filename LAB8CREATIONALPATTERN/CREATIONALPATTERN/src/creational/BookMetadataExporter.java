@@ -2,6 +2,7 @@ package creational;
 
 import creational.BookCollection;
 import creational.BookMetadataFormatter;
+import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.HashSet;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import javax.xml.parsers.ParserConfigurationException;
 public abstract class BookMetadataExporter extends BookCollection {
 
     public void export(PrintStream stream) throws IOException, ParserConfigurationException {
-
+        
         //Prepare formatter
         BookMetadataFormatter formatter = createFomatter();
 
@@ -20,8 +21,9 @@ public abstract class BookMetadataExporter extends BookCollection {
             formatter.append(bookObj);
         });
 
-        // print to selected stream.
-        stream.print(formatter.getMetadataString());
+        // print with selected stream.
+        System.out.println("<----------Sucessfully  -----------> ");
+        stream.println(formatter.getMetadataString());
 
     }
 
