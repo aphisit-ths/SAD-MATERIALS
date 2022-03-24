@@ -11,19 +11,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Current usage
-        BookMetadataFormatter formatter = null;
-        try {
-            formatter = BookMetadataFormatterFactory.getBookMetadataFormatter(BookMetadataFormatterFactory.Format.JSON);
-            formatter.append(TestData.dragonBook);
-            formatter.append(TestData.sailboatBook);
-            formatter.append(TestData.cleanArchBook);
-            System.out.print(formatter.getMetadataString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        }
+//        // Current usage
+//        BookMetadataFormatter formatter = null;
+//        try {
+//            formatter = BookMetadataFormatterFactory.getBookMetadataFormatter(BookMetadataFormatterFactory.Format.JSON);
+//            formatter.append(TestData.dragonBook);
+//            formatter.append(TestData.sailboatBook);
+//            formatter.append(TestData.cleanArchBook);
+//            System.out.print(formatter.getMetadataString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParserConfigurationException e) {
+//            e.printStackTrace();
+//        }
 
         // Expected usage
 // //        BookMetadataExporter exporter = new XMLBookMetadataExporter();
