@@ -16,10 +16,10 @@ public class Main {
         FileOutputStream fileOutput = new FileOutputStream("csv_output.csv");
         PrintStream printStream = new PrintStream(fileOutput);
         //Expected usage
-        BookMetadataExporter exporter = new CSVBookMetadataExporter();
+        BookMetadataExporter exporter = new JSONBookMetadataExporter();
         exporter.add(TestData.sailboatBook);
         exporter.add(TestData.GoFBook);
         exporter.add(TestData.cleanArchBook);
-        exporter.export(printStream);
+        exporter.export(System.out);
     }
 }

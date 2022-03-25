@@ -22,7 +22,7 @@ public abstract class BookMetadataExporter extends BookCollection {
         });
 
         // print with selected stream.
-        System.out.println("<----------Sucessfully  -----------> ");
+        System.out.println("<---------- Sucessfully  -----------> ");
         stream.println(formatter.getMetadataString());
 
     }
