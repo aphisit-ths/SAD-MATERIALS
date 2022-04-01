@@ -1,0 +1,1 @@
+![SVG]("STRUCTURALDESIGNPATTERN\src\structural\HealthcareWorker.svg)
