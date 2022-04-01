@@ -1,1 +1,1 @@
-![SVG]("STRUCTURALDESIGNPATTERN\src\structural\HealthcareWorker.svg)
+![SVG](STRUCTURALDESIGNPATTERN/src/structural/HealthcareWorker.svg)
