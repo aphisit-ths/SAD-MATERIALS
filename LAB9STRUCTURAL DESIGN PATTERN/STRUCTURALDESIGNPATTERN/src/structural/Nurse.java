@@ -2,6 +2,7 @@
 package structural;
 
 public class Nurse extends HealthcareWorker {
+
     public Nurse(String name, double price) {
         super(name, price);
     }

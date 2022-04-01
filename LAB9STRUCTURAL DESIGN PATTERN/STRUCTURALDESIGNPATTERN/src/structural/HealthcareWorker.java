@@ -2,6 +2,7 @@
 package structural;
 
 public abstract class HealthcareWorker implements HealthcareServiceable {
+
     private String name;
     private double price;
 

@@ -1,8 +1,5 @@
 package structural;
 
-
-
-
 public class Main {
 
     public static void main(String[] args) {
@@ -47,5 +44,11 @@ public class Main {
         healthcareSeries.addMember(teamMedicalDragon);
         healthcareSeries.addMember(theGoodDoctor);
         System.out.println("The total price of the healthcare series is " + healthcareSeries.getPrice());
+        
+        
+        //play ground ===============
+         System.out.println("=============PLAYGROUD==============");
+         
     }
+    
 }
